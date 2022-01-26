@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Welcome to Vue</title>
+    <script src="https://unpkg.com/vue"></script>
+    <link rel="stylesheet" href="../assets/css//style.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            text-decoration: none;
+            list-style: none;
+            -webkit-box-sizing: border-box;
+            box-sizing: border-box;
+        }
+        
+        body {
+            background-image: url("https://rickandmortypod.com/wp-content/uploads/2018/11/cropped-RM_page-header_background1-3.png");
+            color: green;
+            text-align: center;
+        }
+        
+        img {
+            width: 6%;
+            border-radius: 50%;
+        }
+        
+        h1 {
+            padding: 15px;
+        }
+        
+        li {
+            position: relative;
+            font-size: 30px;
+        }
+        
+        span {
+            position: absolute;
+            bottom: 50px;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="app">
+        <mi-componente></mi-componente>
+    </div>
+    <script>
+        Vue.component('mi-componente', {
+            template: `<div>
+                        <h1>Listado</h1>
+                          <ul>
+                            <li v-for="(personaje, i) in personajes" :key="i">
+                             <img v-bind:src="personaje.src" alt=""> <span>{{personaje.nombre}}</span>
+
+                           </li>
+                         </ul>
+                      </div>`,
+            data: function() {
+                return {
+                    personajes: [{
+                        nombre: "Rick Sanchez",
+                        src: "https://rickandmortyapi.com/api/character/avatar/1.jpeg"
+                    }, {
+                        nombre: "Morty Smith",
+                        src: "https://rickandmortyapi.com/api/character/avatar/2.jpeg"
+                    }, {
+                        nombre: "Summer Smith",
+                        src: "https://rickandmortyapi.com/api/character/avatar/3.jpeg"
+                    }, {
+                        nombre: "Beth Smith",
+                        src: "https://rickandmortyapi.com/api/character/avatar/4.jpeg"
+                    }, {
+                        nombre: "Jerry Smith",
+                        src: "https://rickandmortyapi.com/api/character/avatar/5.jpeg"
+                    }, ]
+                }
+            }
+        })
+        const app = new Vue({
+            el: '#app',
+            data: {
+
+            },
+            methods: {
+
+            }
+        })
+    </script>
+</body>
+
+</html>
